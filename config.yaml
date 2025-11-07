@@ -47,7 +47,7 @@ sources:
 
 # Optional source-specific configuration
 pubmed:
-  email: your.email@example.com
+  email: pkirankumarr44@gmail.com  # Replace with your actual email
   # Note: Replace with your actual email for better API compliance
 
 # If true, bias all sources to biology (e.g., arXiv categories are biological)
