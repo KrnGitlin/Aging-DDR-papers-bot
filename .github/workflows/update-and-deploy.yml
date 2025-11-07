@@ -34,15 +34,25 @@ jobs:
 
       - name: Update papers JSON
         run: |
+          # Ensure the directory exists
+          mkdir -p site/data
+          echo "Running paper update script..."
           python scripts/update_papers.py --write
+          echo "Script completed. Checking if papers.json was created..."
+          ls -la site/data/ || echo "site/data directory not found"
 
       - name: Commit changes
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add site/data/papers.json
-          git diff --cached --quiet || git commit -m "Update papers [skip ci]"
-          git push
+          # Only add and commit if the papers.json file exists
+          if [ -f "site/data/papers.json" ]; then
+            git add site/data/papers.json
+            git diff --cached --quiet || git commit -m "Update papers [skip ci]"
+            git push
+          else
+            echo "No papers.json file generated - skipping commit"
+          fi
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
