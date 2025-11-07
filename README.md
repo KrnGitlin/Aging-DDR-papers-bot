@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # SciPaper Bot
 
 A two-part bot that:
@@ -156,6 +157,6 @@ Control posting with `config.yaml`:
 
 ## Roadmap
 
-- Add support for more sources (Semantic Scholar, Papers with Code)
+- Add support for more sources (Semantic Scholar, Papers with Code)  
 - Topic pages per keyword with pre-rendered HTML
 - RSS output for each keyword
