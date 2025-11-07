@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SciPaper Feed</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <header>
+    <h1>SciPaper Feed</h1>
+    <p>Newest to oldest. Filter by keyword. Data refreshed by CI.</p>
+  </header>
+
+  <section class="controls">
+    <input id="search" type="search" placeholder="Search title/abstract" />
+    <select id="sort">
+      <option value="newest" selected>Newest first</option>
+      <option value="oldest">Oldest first</option>
+    </select>
+    <div id="keywords" class="keywords"></div>
+  </section>
+
+  <main>
+    <div id="list" class="list"></div>
+  </main>
+
+  <footer>
+    <small>
+      Powered by arXiv data. This website is a community-made viewer.
+    </small>
+  </footer>
+
+  <script src="./app.js"></script>
+</body>
+</html>

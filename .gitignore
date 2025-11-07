@@ -1,0 +1,30 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pytest_cache/
+.venv/
+.env
+
+# VS Code
+.vscode/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Site build artifacts
+site/data/papers.json
+
+# Nested git repositories (keep these separate)
+Aging-DDR-papers-bot/
+Aging_DDR_Paper-bot/
+
+# Test and debug files
+test_*.py
+debug_*.py
+add_pubmed_papers.py
+
+# Allow state files to be committed explicitly in workflows
+# data/posted_ids.json is intentionally tracked by workflows

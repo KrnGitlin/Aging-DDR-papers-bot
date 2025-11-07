@@ -1,0 +1,54 @@
+name: Tweet Morning (every 4 hours)
+
+on:
+  schedule:
+    # IST (UTC+5:30) morning posts every 4 hours by default:
+    # 06:00 IST -> 00:30 UTC
+    # 10:00 IST -> 04:30 UTC
+    - cron: '30 0 * * *'
+    - cron: '30 4 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: tweet-morning
+  cancel-in-progress: false
+
+jobs:
+  tweet:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install deps
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Update papers JSON (fresh data)
+        run: |
+          python scripts/update_papers.py --write
+
+      - name: Post a tweet (max 1)
+        env:
+          TWITTER_API_KEY: ${{ secrets.TWITTER_API_KEY }}
+          TWITTER_API_SECRET: ${{ secrets.TWITTER_API_SECRET }}
+          TWITTER_ACCESS_TOKEN: ${{ secrets.TWITTER_ACCESS_TOKEN }}
+          TWITTER_ACCESS_TOKEN_SECRET: ${{ secrets.TWITTER_ACCESS_TOKEN_SECRET }}
+        run: |
+          python scripts/post_to_twitter.py --days 7 --max 1
+
+      - name: Commit posted_ids.json (dedupe state)
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/posted_ids.json site/data/papers.json
+          git diff --cached --quiet || git commit -m "Tweet morning: update posted IDs and data [skip ci]"
+          git push

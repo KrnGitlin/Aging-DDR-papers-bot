@@ -1,0 +1,53 @@
+# Keywords and categories to search on arXiv
+keywords:
+  - Ageing
+  - Aging
+  - DNA damage
+  - DDR
+  - damage repair
+  - DNA damage and Repair
+  - DNA damage & Repair
+
+# arXiv categories (optional filter). Examples: cs.CL, cs.LG, cs.AI
+categories:
+  - q-bio
+  - q-bio.BM
+  - q-bio.CB
+  - q-bio.GN
+  - q-bio.MN
+  - q-bio.NC
+  - q-bio.OT
+  - q-bio.PE
+  - q-bio.QM
+  - q-bio.SC
+  - q-bio.TO
+  - cs.CB
+
+# Time window and volume
+days_back: 7
+max_results: 100
+
+# Output path for the website data json
+site_data_path: site/data/papers.json
+
+# Twitter (X) settings
+twitter:
+  enabled: false
+  max_posts: 5
+  hashtags: ["Ageing", "Aging", "DDR", "DNAdamage", "DNARepair"]
+  dry_run: true
+
+# Sources to include
+sources:
+  arxiv: true
+  biorxiv: true
+  medrxiv: true
+  pubmed: true
+  chemrxiv: true
+
+# Optional source-specific configuration
+pubmed:
+  email: your.email@example.com
+
+# If true, bias all sources to biology (e.g., arXiv categories are biological)
+bio_only: true
