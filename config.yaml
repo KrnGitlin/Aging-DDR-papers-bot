@@ -7,6 +7,10 @@ keywords:
   - damage repair
   - DNA damage and Repair
   - DNA damage & Repair
+  - ovary
+  - oocyte
+  - ovaries
+  - oocytes
 
 # arXiv categories (optional filter). Examples: cs.CL, cs.LG, cs.AI
 categories:
@@ -34,7 +38,7 @@ site_data_path: site/data/papers.json
 twitter:
   enabled: false
   max_posts: 5
-  hashtags: ["Ageing", "Aging", "DDR", "DNAdamage", "DNARepair"]
+  hashtags: ["Ageing", "Aging", "DDR", "DNAdamage", "DNARepair", "ReproductiveAging", "Oocyte"]
   dry_run: true
 
 # Sources to include
