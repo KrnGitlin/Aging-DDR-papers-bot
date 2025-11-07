@@ -56,3 +56,5 @@ pubmed:
 
 # If true, bias all sources to biology (e.g., arXiv categories are biological)
 bio_only: true
+
+# Last updated: 2025-11-07 with reproductive aging keywords
